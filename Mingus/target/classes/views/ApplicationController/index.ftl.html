@@ -1,0 +1,32 @@
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="author" content="Damir Olejar">
+    </head>
+    <body>
+
+    <div class="container">
+
+
+        <#list contacts as c>
+            <div onclick="action('${c.getId()}','${c.getAddress()}')">${c.getContact()}</div>
+        </#list>
+
+
+
+        <form id="newAction" action="/newAction" method="POST" class="form-horizontal" role="form">
+            <input type="hidden" id="fk" name="fk" value="">
+        </form>
+
+        <script>
+            function action(a, b){
+            alert(b);
+            document.getElementById("fk").value = a;
+            document.getElementById("newAction").submit();
+            }
+        </script>
+
+    </div> <!-- /container -->
+    </body>
+    </html>
